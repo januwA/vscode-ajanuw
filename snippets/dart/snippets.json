@@ -115,5 +115,63 @@
       "  },",
       ")"
     ]
+  },
+  "ajanuw flutter new page": {
+    "prefix": "ajanuw flutter new page",
+    "scope": "dart",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:${TM_FILENAME_BASE}} extends StatefulWidget {",
+      "  static const routeName = '/${1:${TM_FILENAME_BASE}}';",
+      "  @override",
+      "  _${1:${TM_FILENAME_BASE}}State createState() => _${1:${TM_FILENAME_BASE}}State();",
+      "}",
+      "",
+      "class _${1:${TM_FILENAME_BASE}}State extends State<${1:${TM_FILENAME_BASE}}> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      body: Center(",
+      "        child: Text('${1:${TM_FILENAME_BASE}}'),",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "ajanuw flutter!": {
+    "prefix": "ajanuw flutter!",
+    "scope": "dart",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "void main() => runApp(MyApp());",
+      "",
+      "class MyApp extends StatelessWidget {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return MaterialApp(",
+      "      home: HomePage(),",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "class HomePage extends StatefulWidget {",
+      "  @override",
+      "  _HomePageState createState() => _HomePageState();",
+      "}",
+      "",
+      "class _HomePageState extends State<HomePage> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      body: Center(",
+      "        child: Text('data'),",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
   }
 }

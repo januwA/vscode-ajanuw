@@ -3,7 +3,7 @@
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
   "publisher": "Ajanuw",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.36.0"
