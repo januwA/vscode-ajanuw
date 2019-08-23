@@ -3,10 +3,10 @@
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
   "publisher": "Ajanuw",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "icon": "images/logo.png",
   "engines": {
-    "vscode": "^1.36.0"
+    "vscode": "^1.37.1"
   },
   "categories": [
     "Snippets"
