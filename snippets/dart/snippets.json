@@ -1,29 +1,25 @@
 {
-  "ajanuw dart mobx": {
-    "prefix": "ajanuw dart mobx",
+  "dart mobx": {
+    "prefix": "dart mobx",
     "scope": "dart",
     "body": [
       "import 'package:mobx/mobx.dart';\r\n",
       "part '$TM_FILENAME_BASE.g.dart';\r\n",
       "class ${1:${TM_FILENAME_BASE}} = _${1:${TM_FILENAME_BASE}} with _$${1:${TM_FILENAME_BASE}};\r\n",
-
       "abstract class _${1:${TM_FILENAME_BASE}} with Store {",
-
       "\t@observable",
       "\tint value = 0;",
-
       "\t@action",
       "\tvoid increment() {",
       "\t\tvalue++;",
       "\t}",
-
       "\t@computed",
       "\tString get valueString => 'value is $value';",
       "}"
     ]
   },
-  "ajanuw dart rx subject": {
-    "prefix": "ajanuw dart rx subject",
+  "dart rx subject": {
+    "prefix": "dart rx subject",
     "scope": "dart",
     "body": [
       "Stream<$2> get $1$ => _$1Subject.stream;",
@@ -32,35 +28,32 @@
       "$2 _$1;"
     ]
   },
-  "ajanuw dart rx controller": {
-    "prefix": "ajanuw dart rx controller",
+  "dart rx controller": {
+    "prefix": "dart rx controller",
     "scope": "dart",
     "body": [
       "Sink<$2> get $1$ => _$1Subject.sink;",
       "final _$1Subject = StreamController<$2>();"
     ]
   },
-  "ajanuw moor flutter": {
-    "prefix": "ajanuw moor flutter",
+  "moor flutter": {
+    "prefix": "moor flutter",
     "scope": "dart",
     "body": [
       "import 'package:moor_flutter/moor_flutter.dart';\r\n",
       "part '${TM_FILENAME_BASE}.g.dart';\r\n",
-
       "class ${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s extends Table {",
       "\tIntColumn get id => integer().autoIncrement()();",
       "\tTextColumn get name => text().withLength(min: 1, max: 50)();",
       "\tDateTimeColumn get dueDate => dateTime().nullable()();",
       "\tBoolColumn get completed => boolean().withDefault(const Constant(false))();",
       "}\r\n",
-
       "@UseMoor(tables: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s], daos: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}Dao])",
       "class AppDatabase extends _\\$AppDatabase {",
       "  AppDatabase(): super(FlutterQueryExecutor.inDatabaseFolder(path: 'db.sqlite'));",
       "\t@override",
       "\tint get schemaVersion => 1;",
       "}\r\n",
-
       "@UseDao(tables: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s])",
       "class ${TM_FILENAME_BASE/^(.)/${1:/upcase}/}Dao extends DatabaseAccessor<AppDatabase> with _$${TM_FILENAME_BASE/^(.)/${1:/upcase}/}DaoMixin {",
       "\tfinal AppDatabase db;",
@@ -73,8 +66,8 @@
     ],
     "description": "create a moor_flutter snippets. useage: create a 'todo.dart' file, go to the file and enter 'ajanuw moor flutter'"
   },
-  "ajanuw flutter StreamBuilder": {
-    "prefix": "ajanuw flutter StreamBuilder",
+  "flutter StreamBuilder": {
+    "prefix": "flutter StreamBuilder",
     "scope": "dart",
     "body": [
       "StreamBuilder(",
@@ -95,8 +88,8 @@
       ")"
     ]
   },
-  "ajanuw flutter FutureBuilder": {
-    "prefix": "ajanuw flutter FutureBuilder",
+  "flutter FutureBuilder": {
+    "prefix": "flutter FutureBuilder",
     "scope": "dart",
     "body": [
       "FutureBuilder(",
@@ -105,7 +98,6 @@
       "    if (snap.connectionState == ConnectionState.waiting) {",
       "      return Center(child: CircularProgressIndicator());",
       "    }",
-
       "    if (snap.connectionState == ConnectionState.done) {",
       "      if (snap.hasError) {",
       "        return Center(child: Text('${snap.error}'));",
@@ -118,8 +110,8 @@
       ")"
     ]
   },
-  "ajanuw flutter new page": {
-    "prefix": "ajanuw flutter new page",
+  "flutter new page": {
+    "prefix": "flutter new page",
     "scope": "dart",
     "body": [
       "import 'package:flutter/material.dart';",
@@ -145,8 +137,8 @@
       "}"
     ]
   },
-  "ajanuw flutter!": {
-    "prefix": "ajanuw flutter!",
+  "flutter!": {
+    "prefix": "flutter!",
     "scope": "dart",
     "body": [
       "import 'package:flutter/material.dart';",
@@ -180,6 +172,134 @@
       "    );",
       "  }",
       "}"
+    ]
+  },
+  "flutter GeneralDialog": {
+    "prefix": "flutter GeneralDialog",
+    "scope": "dart",
+    "body": [
+      "showGeneralDialog(",
+      "  context: context,",
+      "  barrierDismissible: true,",
+      "  barrierColor: Color(0x80000000),",
+      "  barrierLabel: 'Dismiss',",
+      "  transitionDuration: Duration(milliseconds: 300),",
+      "  transitionBuilder: (",
+      "    BuildContext context,",
+      "    Animation<double> animation,",
+      "    Animation<double> secondaryAnimation,",
+      "    Widget child,",
+      "  ) {",
+      "    var tween =",
+      "        Tween(begin: Offset(0, 1), end: Offset(0, 0.8));",
+      "    return SlideTransition(",
+      "      position: tween.animate(",
+      "        CurvedAnimation(",
+      "          parent: animation,",
+      "          curve: Curves.easeOut,",
+      "        ),",
+      "      ),",
+      "      child: child,",
+      "    );",
+      "  },",
+      "  pageBuilder: (",
+      "    BuildContext context,",
+      "    Animation<double> animation,",
+      "    Animation<double> secondaryAnimation,",
+      "  ) {",
+      "    return FlutterGeneralDialog(",
+      "      padding: EdgeInsets.all(4),",
+      "      child: Padding(",
+      "        padding: const EdgeInsets.fromLTRB(18, 18, 18, 0),",
+      "        child: Column(",
+      "          crossAxisAlignment: CrossAxisAlignment.stretch,",
+      "          children: <Widget>[",
+      "            Text(",
+      "              'Dialog title ?',",
+      "              style: TextStyle(",
+      "                fontSize: 18,",
+      "                fontWeight: FontWeight.bold,",
+      "              ),",
+      "            ),",
+      "            SizedBox(height: 10),",
+      "            ButtonBar(",
+      "              children: <Widget>[",
+      "                FlatButton(",
+      "                  onPressed: () =>",
+      "                      Navigator.of(context).pop(),",
+      "                  child: Text('OK'),",
+      "                ),",
+      "              ],",
+      "            ),",
+      "          ],",
+      "        ),",
+      "      ),",
+      "    );",
+      "  },",
+      ");"
+    ]
+  },
+  "flutter AlertDialog": {
+    "prefix": "flutter AlertDialog",
+    "scope": "dart",
+    "body": [
+      "showDialog<void>(",
+      "    context: context,",
+      "    barrierDismissible: false, // user must tap button!",
+      "    builder: (BuildContext context) {",
+      "      return AlertDialog(",
+      "        title: Text('Rewind and remember'),",
+      "        content: SingleChildScrollView(",
+      "          child: ListBody(",
+      "            children: <Widget>[",
+      "              Text('You will never be satisfied.'),",
+      "              Text('You\\'re like me. I’m never satisfied.'),",
+      "            ],",
+      "          ),",
+      "        ),",
+      "        actions: <Widget>[",
+      "          FlatButton(",
+      "            child: Text('Regret'),",
+      "            onPressed: () {",
+      "              Navigator.of(context).pop();",
+      "            },",
+      "          ),",
+      "        ],",
+      "      );",
+      "    },",
+      "  );"
+    ]
+  },
+  "flutter SimpleDialog": {
+    "prefix": "flutter SimpleDialog",
+    "scope": "dart",
+    "body": [
+      "switch (await showDialog<Department>(",
+      "    context: context,",
+      "    builder: (BuildContext context) {",
+      "      return SimpleDialog(",
+      "        title: const Text('Select assignment'),",
+      "        children: <Widget>[",
+      "          SimpleDialogOption(",
+      "            onPressed: () { Navigator.pop(context, Department.treasury); },",
+      "            child: const Text('Treasury department'),",
+      "          ),",
+      "          SimpleDialogOption(",
+      "            onPressed: () { Navigator.pop(context, Department.state); },",
+      "            child: const Text('State department'),",
+      "          ),",
+      "        ],",
+      "      );",
+      "    }",
+      "  )) {",
+      "    case Department.treasury:",
+      "      // Let's go.",
+      "      // ...",
+      "    break;",
+      "    case Department.state:",
+      "      // ...",
+      "    break;",
+      "  }"
     ]
   }
 }

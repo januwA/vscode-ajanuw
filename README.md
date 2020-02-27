@@ -1,9 +1,5 @@
 # vscode-ajanuw
 
-我常用的代码片段
+- [code to body](https://januwa.github.io/p5-vscode-make-snippets/index.html)
 
-## build
-```
-λ yarn global add vsce
-λ vsce package
-```
+我常用的代码片段

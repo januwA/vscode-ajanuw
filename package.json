@@ -2,9 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "publisher": "Ajanuw",
   "version": "1.1.2",
-  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.37.1"
   },
@@ -25,10 +23,10 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile",
+    "pretest": "npm run compile",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
@@ -42,9 +40,13 @@
     "tslint": "^5.12.1",
     "vscode-test": "^1.0.0-next.0"
   },
+  "publisher": "Ajanuw",
+  "author": "Ajanuw",
+  "icon": "images/logo.png",
+  "license": "MIT",
+  "homepage": "https://github.com/januwA/vscode-ajanuw",
   "repository": {
     "type": "git",
     "url": "https://github.com/januwA/vscode-ajanuw"
-  },
-  "license": ""
+  }
 }
