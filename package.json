@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.37.1"
   },
@@ -19,6 +19,26 @@
       {
         "language": "dart",
         "path": "./snippets/dart/snippets.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/html/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/html/snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/html/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/html/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/html/snippets.json"
       }
     ]
   },
