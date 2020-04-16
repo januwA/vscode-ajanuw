@@ -5,5 +5,13 @@
     "body": [
       "<div contenteditable=\"true\">I'm Editable. Edit me!</div>"
     ]
+  },
+  "a-ng-router-view": {
+    "prefix": "a-ng-router-view",
+    "scope": "html",
+    "description": "ng 的路由视图输出组件",
+    "body": [
+      "<router-outlet></router-outlet>"
+    ]
   }
 }

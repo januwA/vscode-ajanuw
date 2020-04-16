@@ -1,3 +1,7 @@
+# 1.2.3 2020-4-16
+
+- 增加了`a-ng-router-view`
+
 # Change Log
 
 All notable changes to the "vscode-ajanuw" extension will be documented in this file.
