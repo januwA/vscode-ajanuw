@@ -1,0 +1,409 @@
+{
+  "cea": {
+    "prefix": "cea",
+    "description": "https://wiki.cheatengine.org/index.php?title=Auto_Assembler:Commands",
+    "scope": "asm,cea",
+    "body": [
+      "// https://wiki.cheatengine.org/index.php?title=Auto_Assembler:Commands"
+    ]
+  },
+  "aobScan": {
+    "prefix": [
+      "aob",
+      "aobScan"
+    ],
+    "description": [
+      "扫描特定模块的内存以查找给定的字节数组，并将结果设置为符号名称。“ x”，“？”和“ *”被视为通配符"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "aobScan(SomeSymbol, 00 53 48 8D 64 24 E0)"
+    ]
+  },
+  "aobScanModule": {
+    "prefix": [
+      "aob",
+      "aobScanModule"
+    ],
+    "description": [
+      "将扫描特定模块的给定字节数组（支持通配符），并在第一个匹配项处放置标签"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "aobScanModule(SomeSymbol, Tutorial-x86_64.exe, 00 53 48 8D 64 24 E0)"
+    ]
+  },
+  "aobScanRegion": {
+    "prefix": [
+      "aob",
+      "aobScanRegion"
+    ],
+    "description": [
+      "将扫描给定字节数组的特定范围（支持通配符），并在第一个匹配项处放置标签"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "aobScanRegion(SomeSymbol, Tutorial-i386.exe+4000, Tutorial-i386.exe+5000, 00 53 48 8D 64 24 E0)"
+    ]
+  },
+  "label": {
+    "prefix": "label",
+    "description": "启用标签名称一词作为地址",
+    "scope": "asm,cea",
+    "body": [
+      "label(someLabel)",
+      "someLabel:",
+      "  mov eax, 1"
+    ]
+  },
+  "alloc": {
+    "prefix": [
+      "alloc",
+      "dealloc"
+    ],
+    "description": "用指向它的标签分配一个内存区域",
+    "scope": "asm,cea",
+    "body": [
+      "alloc(SomeSymbol, 0x4)",
+      "alloc(SomeSymbol, 0x1000)",
+      "alloc(SomeSymbol, $1000)",
+      "alloc(SomeSymbol, $1000, game.exe)"
+    ]
+  },
+  "dealloc": {
+    "prefix": [
+      "alloc",
+      "dealloc"
+    ],
+    "description": "解除分配使用alloc分配的内存块",
+    "scope": "asm,cea",
+    "body": [
+      "dealloc(SomeSymbol)"
+    ]
+  },
+  "globalAlloc": {
+    "prefix": [
+      "alloc",
+      "globalAlloc"
+    ],
+    "description": [
+      "将分配一定数量的内存并注册指定的名称，注意这意味着当你脚本禁用时，这块内存一直存在(dealloc无效)，并且每次注册的地址都一样，如果你要在脚本禁用时清理掉申请的内存，那么就用alloc，手动申请symbol，然后在脚本禁用时手动清理掉内存和symbol",
+      "globalAlloc(SomeSymbol, 0x4)",
+      "globalAlloc(SomeSymbol, 0x4, SomeAOBSymbol)",
+      "globalAlloc(SomeSymbol, 0x1000, Tutorial-x86_64.exe)",
+      "globalAlloc(SomeSymbol, $1000, Tutorial-x86_64.exe)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "globalAlloc(SomeSymbol, 0x4)"
+    ]
+  },
+  "kAlloc": {
+    "prefix": [
+      "alloc",
+      "kAlloc"
+    ],
+    "description": "核心分配",
+    "scope": "asm,cea",
+    "body": [
+      "kAlloc()"
+    ]
+  },
+  "fullAccess": {
+    "prefix": [
+      "fullAccess"
+    ],
+    "description": [
+      "使内存区域可读，可写且可执行",
+      "fullAccess(SomeSymbol, 0xC2)",
+      "fullAccess(00123ABC, 12)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "fullAccess(SomeSymbol, 0xC2)"
+    ]
+  },
+  "reassemble": {
+    "prefix": [
+      "reassemble"
+    ],
+    "description": [
+      "重新组装给定的地址，在其声明的位置写入。",
+      "reassemble(SomeRegisteredSymbol)",
+      "reassemble(00123ABC)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "reassemble(SomeRegisteredSymbol)"
+    ]
+  },
+  "readMem": {
+    "prefix": [
+      "readMem"
+    ],
+    "description": "读取内存区域并将其写入此指令所在的位置",
+    "scope": "asm,cea",
+    "body": [
+      "readMem(00123ABC, 5)"
+    ]
+  },
+  "registerSymbol": {
+    "prefix": [
+      "registerSymbol"
+    ],
+    "description": [
+      "将符号添加到用户定义的符号列表中",
+      "aobScan(SomeSymbol, 00 53 48 8D 64 24 E0)",
+      "registerSymbol(SomeSymbol)",
+      "-----------------------",
+      "aobScan(someAobSymbol, 00 53 48 8D 64 24 E0)",
+      "define(SomeInjectionSymbol,someAobSymbol+C)",
+      "registerSymbol(SomeInjectionSymbol)",
+      "-----------------------",
+      "define(SomeSymbol,00123ABC)",
+      "registerSymbol(SomeSymbol)",
+      "-----------------------",
+      "label(SomeSymbol)",
+      "registerSymbol(SomeSymbol)",
+      "00123ABC:",
+      "SomeSymbol:"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "registerSymbol(SomeSymbol)"
+    ]
+  },
+  "unregisterSymbol": {
+    "prefix": [
+      "unregisterSymbol"
+    ],
+    "description": "从用户定义的符号列表中删除符号",
+    "scope": "asm,cea",
+    "body": [
+      "unregisterSymbol(SomeSymbol)"
+    ]
+  },
+  "define": {
+    "prefix": [
+      "define"
+    ],
+    "description": [
+      "将指定名称的所有标记替换为任何文本",
+      "--------------------------------",
+      "define(address,  00 12 3A BC  )",
+      "...",
+      "address:",
+      "  db 90 90 90",
+      "--------------------------------",
+      "define(fullValue,(float)100.0)",
+      "...",
+      "mov eax,fullValue",
+      "--------------------------------",
+      "define(code, game.exe+10)",
+      "code:",
+      "  mov eax, 1"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "define(fullValue,(float)100.0)"
+    ]
+  },
+  "assert": {
+    "prefix": [
+      "assert"
+    ],
+    "description": "将检查给定字节的内存地址。如果地址的内存不是给定的字节数组所定义的，则自动汇编脚本将不会执行。",
+    "scope": "asm,cea",
+    "body": [
+      "assert(Game.exe+123ABC, 01 02 03 0A 0B 0C)"
+    ]
+  },
+  "include": {
+    "prefix": [
+      "include"
+    ],
+    "description": [
+      "在该位置包括另一个自动汇编器文件"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "include(someCeaFile)"
+    ]
+  },
+  "createThread": {
+    "prefix": [
+      "createThread"
+    ],
+    "description": [
+      "将在进程中的指定地址处生成线程",
+      "createThread(SomeSymbol)",
+      "createThread(00123ABC)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "createThread(SomeSymbol)"
+    ]
+  },
+  "createthreadandwait": {
+    "prefix": [
+      "createthreadandwait"
+    ],
+    "description": [
+      "将在进程中的指定地址处生成线程，并等待其返回",
+      "createThreadAndWait(SomeSymbol)",
+      "createThreadAndWait(00123ABC,0)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "createThreadAndWait(SomeSymbol)"
+    ]
+  },
+  "loadLibrary": {
+    "prefix": [
+      "loadLibrary"
+    ],
+    "description": "将指定的dll注入目标进程",
+    "scope": "asm,cea",
+    "body": [
+      "loadLibrary(someDllFile.dll)"
+    ]
+  },
+  "loadBinary": {
+    "prefix": [
+      "loadBinary"
+    ],
+    "description": [
+      "将在指定地址加载二进制文件",
+      "loadBinary(SomeSymbol, someBinaryFile.bin)",
+      "loadBinary(00123ABC, someBinaryFile.bin)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "loadBinary(00123ABC, someBinaryFile.bin)"
+    ]
+  },
+  "struct / endStruct": {
+    "prefix": [
+      "struct / endStruct"
+    ],
+    "description": "使用STRUCT和ENDSTRUCT，您可以在自动汇编脚本中定义内部结构",
+    "scope": "asm,cea",
+    "body": [
+      "STRUCT stackview",
+      "returnaddress: DD ?",
+      "param1: ",
+      "  DD ?",
+      "param2: DB ? ? ? ?",
+      "ENDSTRUCT",
+      "",
+      "mov eax,[EBP+stackview.param1]",
+      "mov ebx,[EBP+param2]"
+    ]
+  },
+  "luaCall": {
+    "prefix": [
+      "luaCall"
+    ],
+    "description": [
+      "执行给定的Lua代码。这类似于{$ lua}，但仅适用于括号之间的代码。",
+      "luaCall(print('I have the power!'))",
+      "LUACALL(writefloat('00123ABC', 50 + readfloat(0x00123ABC)))"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "LUACALL(writefloat('00123ABC', 50 + readfloat(0x00123ABC)))"
+    ]
+  },
+  "$lua": {
+    "prefix": [
+      "$lua"
+    ],
+    "description": "{$LUA} 在两个标签中插入lua脚本 {$ASM}",
+    "scope": "asm,cea",
+    "body": [
+      "{$lua}",
+      "-- This is Lua code.",
+      "print('Hello')",
+      "if memrec then",
+      "  print('This is memoryrecord '..memrec.description)",
+      "end",
+      "{$asm}",
+      "// This is Auto Assembler code",
+      "00123ABC:",
+      "  db 90 90 90"
+    ]
+  },
+  "align": {
+    "prefix": [
+      "align"
+    ],
+    "description": "告诉汇编器对齐给定的字节大小",
+    "scope": "asm,cea",
+    "body": [
+      "align 2, CC"
+    ]
+  },
+  "{$TRY} / {$EXCEPT}": {
+    "prefix": [
+      "{$TRY} / {$EXCEPT}"
+    ],
+    "description": "在发生异常时，{$ TRY}和{$ EXCEPT}块之间的代码将跳转到{$ EXCEPT}部分",
+    "scope": "asm,cea",
+    "body": [
+      "{$try}",
+      "mov eax,[ecx+10]",
+      "jmp short noerror",
+      "{$except}",
+      "xor eax,eax",
+      "noerror:",
+      "Benefits:"
+    ]
+  },
+  "default inject": {
+    "prefix": [
+      "default inject"
+    ],
+    "description": "简单的模板注入",
+    "scope": "asm,cea",
+    "body": [
+      "[ENABLE]",
+      "alloc(hello, $1000, game.exe)",
+      "registerSymbol(hello)",
+      "",
+      "alloc(xxx, $8, game.exe)",
+      "registerSymbol(xxx)",
+      "",
+      "xxx:",
+      "  nop",
+      "",
+      "hello:",
+      "  push eax",
+      "  mov eax, 1",
+      "  pop eax",
+      "  ret",
+      "",
+      "[DISABLE]",
+      "dealloc(hello)",
+      "unregisterSymbol(hello)",
+      "dealloc(xxx)",
+      "unregisterSymbol(xxx)"
+    ]
+  },
+  "Base pointer": {
+    "prefix": [
+      "Base pointer"
+    ],
+    "description": "使用symbol的方式获取，游戏中的值，而不是找基址",
+    "scope": "asm,cea",
+    "body": [
+      "// [hp]+85C",
+      "alloc(hp, $8, game.exe)",
+      "registersymbol(hp)",
+      "newmem:",
+      "  mov [rdi+0000085C],ecx",
+      "  mov [hp],rdi",
+      "unregistersymbol(hp)",
+      "dealloc(hp)"
+    ]
+  }
+}

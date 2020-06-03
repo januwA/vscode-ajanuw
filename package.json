@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -39,6 +39,14 @@
       {
         "language": "typescriptreact",
         "path": "./snippets/html/snippets.json"
+      },
+      {
+        "language": "asm",
+        "path": "./snippets/cea/snippets.json"
+      },
+      {
+        "language": "cea",
+        "path": "./snippets/cea/snippets.json"
       }
     ]
   },
