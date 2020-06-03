@@ -4,4 +4,4 @@
 
 我常用的代码片段，也就是代码提示
 
-- cea文件打开后需要与asm关联
+- https://github.com/maziac/asm-code-lens/blob/master/grammar/asm.json

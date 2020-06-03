@@ -61,13 +61,15 @@
       "alloc",
       "dealloc"
     ],
-    "description": "用指向它的标签分配一个内存区域",
-    "scope": "asm,cea",
-    "body": [
-      "alloc(SomeSymbol, 0x4)",
+    "description": [
+      "用指向它的标签分配一个内存区域",
       "alloc(SomeSymbol, 0x1000)",
       "alloc(SomeSymbol, $1000)",
       "alloc(SomeSymbol, $1000, game.exe)"
+    ],
+    "scope": "asm,cea",
+    "body": [
+      "alloc(SomeSymbol, 0x4)"
     ]
   },
   "dealloc": {
@@ -321,7 +323,8 @@
     "description": "{$LUA} 在两个标签中插入lua脚本 {$ASM}",
     "scope": "asm,cea",
     "body": [
-      "{$lua}",
+      "{\\$lua}",
+      "if syntaxcheck then return end",
       "-- This is Lua code.",
       "print('Hello')",
       "if memrec then",
