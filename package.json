@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "engines": {
     "vscode": "^1.44.0"
   },

@@ -9,7 +9,6 @@
   },
   "aobScan": {
     "prefix": [
-      "aob",
       "aobScan"
     ],
     "description": [
@@ -22,7 +21,6 @@
   },
   "aobScanModule": {
     "prefix": [
-      "aob",
       "aobScanModule"
     ],
     "description": [
@@ -35,7 +33,6 @@
   },
   "aobScanRegion": {
     "prefix": [
-      "aob",
       "aobScanRegion"
     ],
     "description": [
@@ -58,8 +55,7 @@
   },
   "alloc": {
     "prefix": [
-      "alloc",
-      "dealloc"
+      "alloc"
     ],
     "description": [
       "用指向它的标签分配一个内存区域",
@@ -74,7 +70,6 @@
   },
   "dealloc": {
     "prefix": [
-      "alloc",
       "dealloc"
     ],
     "description": "解除分配使用alloc分配的内存块",
@@ -85,7 +80,6 @@
   },
   "globalAlloc": {
     "prefix": [
-      "alloc",
       "globalAlloc"
     ],
     "description": [
@@ -102,7 +96,6 @@
   },
   "kAlloc": {
     "prefix": [
-      "alloc",
       "kAlloc"
     ],
     "description": "核心分配",
