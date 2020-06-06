@@ -83,7 +83,7 @@
       "globalAlloc"
     ],
     "description": [
-      "将分配一定数量的内存并注册指定的名称，注意这意味着当你脚本禁用时，这块内存一直存在(dealloc无效)，并且每次注册的地址都一样，如果你要在脚本禁用时清理掉申请的内存，那么就用alloc，手动申请symbol，然后在脚本禁用时手动清理掉内存和symbol",
+      "将分配一定数量的内存并注册指定的名称，如果手动清理，那么下次会注册在相同的地方",
       "globalAlloc(SomeSymbol, 0x4)",
       "globalAlloc(SomeSymbol, 0x4, SomeAOBSymbol)",
       "globalAlloc(SomeSymbol, 0x1000, Tutorial-x86_64.exe)",
@@ -91,7 +91,13 @@
     ],
     "scope": "asm,cea",
     "body": [
-      "globalAlloc(SomeSymbol, 0x4)"
+      "globalAlloc(SomeSymbol, 0x4)",
+      "SomeSymbol:",
+      "  dd (int)1",
+      "mov [SomeSymbol],edi",
+      "mov eax, [SomeSymbol]",
+      "unregistersymbol(SomeSymbol)",
+      "dealloc(SomeSymbol)"
     ]
   },
   "kAlloc": {
