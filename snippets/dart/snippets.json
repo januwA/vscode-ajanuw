@@ -36,36 +36,6 @@
       "final _$1Subject = StreamController<$2>();"
     ]
   },
-  "flutter moor": {
-    "prefix": "moor flutter",
-    "scope": "dart",
-    "body": [
-      "import 'package:moor_flutter/moor_flutter.dart';\r\n",
-      "part '${TM_FILENAME_BASE}.g.dart';\r\n",
-      "class ${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s extends Table {",
-      "\tIntColumn get id => integer().autoIncrement()();",
-      "\tTextColumn get name => text().withLength(min: 1, max: 50)();",
-      "\tDateTimeColumn get dueDate => dateTime().nullable()();",
-      "\tBoolColumn get completed => boolean().withDefault(const Constant(false))();",
-      "}\r\n",
-      "@UseMoor(tables: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s], daos: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}Dao])",
-      "class AppDatabase extends _\\$AppDatabase {",
-      "  AppDatabase(): super(FlutterQueryExecutor.inDatabaseFolder(path: 'db.sqlite'));",
-      "\t@override",
-      "\tint get schemaVersion => 1;",
-      "}\r\n",
-      "@UseDao(tables: [${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s])",
-      "class ${TM_FILENAME_BASE/^(.)/${1:/upcase}/}Dao extends DatabaseAccessor<AppDatabase> with _$${TM_FILENAME_BASE/^(.)/${1:/upcase}/}DaoMixin {",
-      "\tfinal AppDatabase db;",
-      "\t${TM_FILENAME_BASE/^(.)/${1:/upcase}/}Dao(this.db) : super(db);",
-      "\tStream<List<${TM_FILENAME_BASE/^(.)/${1:/upcase}/}>> watchAll${TM_FILENAME_BASE/^(.)/${1:/upcase}/}s() => select(${TM_FILENAME_BASE}s).watch();",
-      "\tFuture<int> insert${TM_FILENAME_BASE/^(.)/${1:/upcase}/}(Insertable<${TM_FILENAME_BASE/^(.)/${1:/upcase}/}> $TM_FILENAME_BASE) => into(${TM_FILENAME_BASE}s).insert($TM_FILENAME_BASE);",
-      "\tFuture<bool> update${TM_FILENAME_BASE/^(.)/${1:/upcase}/}(Insertable<${TM_FILENAME_BASE/^(.)/${1:/upcase}/}> $TM_FILENAME_BASE) => update(${TM_FILENAME_BASE}s).replace($TM_FILENAME_BASE);",
-      "\tFuture<int> delete${TM_FILENAME_BASE/^(.)/${1:/upcase}/}(Insertable<${TM_FILENAME_BASE/^(.)/${1:/upcase}/}> $TM_FILENAME_BASE) => delete(${TM_FILENAME_BASE}s).delete($TM_FILENAME_BASE);",
-      "}"
-    ],
-    "description": "create a moor_flutter snippets. useage: create a 'todo.dart' file, go to the file and enter 'ajanuw moor flutter'"
-  },
   "flutter StreamBuilder": {
     "prefix": "flutter StreamBuilder",
     "scope": "dart",
@@ -300,23 +270,6 @@
       "      // ...",
       "    break;",
       "  }"
-    ]
-  },
-  "flutter wrap buttons": {
-    "prefix": "flutter wrap buttons",
-    "scope": "dart",
-    "body": [
-      "Wrap(",
-      "  spacing: 4.0,",
-      "  children: <Widget>[",
-      "    for (var i in [1, 2, 3, 4, 5, 6, 7, 8, 9])",
-      "      FlatButton(",
-      "        color: Theme.of(context).primaryColor,",
-      "        onPressed: () {},",
-      "        child: Text('item $i'),",
-      "      ),",
-      "  ],",
-      ")"
     ]
   },
   "flutter form": {

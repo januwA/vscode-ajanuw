@@ -1,6 +1,7 @@
 {
   "ng store": {
     "prefix": "ng store",
+    "scope": "typescript",
     "body": [
       "import { Injectable } from '@angular/core';",
       "import { Store, Query, StoreConfig } from '@datorama/akita';",
@@ -77,6 +78,7 @@
   },
   "ng entity": {
     "prefix": "ng entity",
+    "scope": "typescript",
     "body": [
       "import { HttpClient } from '@angular/common/http';",
       "import { Injectable } from '@angular/core';",
