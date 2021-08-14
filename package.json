@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -52,6 +52,10 @@
         "path": "./snippets/html/snippets.json"
       },
       {
+        "language": "typescript",
+        "path": "./snippets/ng/snippets.json"
+      },
+      {
         "language": "typescriptreact",
         "path": "./snippets/html/snippets.json"
       },
@@ -91,5 +95,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/januwA/vscode-ajanuw"
-  }
+  },
+  "dependencies": {}
 }
