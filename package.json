@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -46,6 +46,10 @@
       {
         "language": "cea",
         "path": "./snippets/cea/snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/vue/snippets.json"
       }
     ]
   },
