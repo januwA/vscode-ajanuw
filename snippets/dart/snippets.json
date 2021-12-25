@@ -600,5 +600,34 @@
       "  });",
       "}"
     ]
+  },
+  "flutter ChangeNotifier": {
+    "prefix": "flutter service",
+    "scope": "dart",
+    "body": [
+      "import 'package:flutter/widgets.dart';",
+      "",
+      "class $1Service extends ChangeNotifier {",
+      "  static final $1Service _ins = $1Service._();",
+      "  $1Service._();",
+      "  factory $1Service() {",
+      "    return _ins;",
+      "  }",
+      "",
+      "  int _count = 0;",
+      "  int get count => _count;",
+      "  set count(int v) {",
+      "    _count = v;",
+      "    notifyListeners();",
+      "  }",
+      "",
+      "  Future<void> init() async {",
+      "    await Future.delayed(const Duration(seconds: 2));",
+      "    _count = 10;",
+      "    notifyListeners();",
+      "  }",
+      "}"
+    ],
+    "description": "flutter ChangeNotifier "
   }
 }

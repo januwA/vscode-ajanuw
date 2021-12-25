@@ -2,7 +2,7 @@
   "name": "vscode-ajanuw",
   "displayName": "vscode ajanuw",
   "description": "vscode ajanuw",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -50,6 +50,10 @@
       {
         "language": "javascript",
         "path": "./snippets/vue/snippets.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/python/snippets.json"
       }
     ]
   },
